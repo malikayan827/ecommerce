@@ -18,7 +18,7 @@ import ModalScreen from './screens/ModalScreen';
 import  OTPScreen from "../Frontend/screens/SignUpScreens/OTPscreen"
 import Home from './screens/Home';
 import MyProfile from './screens/profileScreen/MyProfile';
-
+import CustomHeader from './components/CustomHeader';
 import Tabbar from './Tabbar';
 
 import { I18nManager } from 'react-native';
@@ -26,6 +26,7 @@ import DetailScreen from './screens/DetailScreen';
 import ShopmoreScreen from './screens/ShopmoreScreen';
 import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';
+import OrdersProcessings from './screens/ordersScreen/OrdersProcessings';
 
 
 const Stack = createNativeStackNavigator();
@@ -89,11 +90,18 @@ export default function App() {
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
           {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen}/> */}
-          <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/>
+          {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
 
 
           
           {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
+
+          <Stack.Screen name='Order Processing'  options={{
+            header: ({ navigation }) => (
+              <CustomHeader navigation={navigation} title="Orders Details"/>
+            ),
+          }} component={OrdersProcessings}/>
+
 
 
         </Stack.Navigator>
