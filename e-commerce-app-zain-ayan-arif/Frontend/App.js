@@ -25,6 +25,7 @@ import { I18nManager } from 'react-native';
 import DetailScreen from './screens/DetailScreen';
 import ShopmoreScreen from './screens/ShopmoreScreen';
 import ShippingAddress from './screens/profileScreen/ShippingAddress';
+import OrderDetails from './screens/profileScreen/OrderDetails';
 
 
 const Stack = createNativeStackNavigator();
@@ -88,8 +89,11 @@ export default function App() {
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
           {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen}/> */}
+          <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/>
+
+
           
-          <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/>
+          {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
 
 
         </Stack.Navigator>
