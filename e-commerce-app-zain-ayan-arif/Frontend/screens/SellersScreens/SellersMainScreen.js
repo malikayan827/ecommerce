@@ -2,6 +2,10 @@ import { View, Text, TextInput, FlatList, StyleSheet, ScrollView, TouchableOpaci
 import React,{useState, useEffect} from 'react'
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Products from './Products';
+import Reviews from './Reviews';
+import Settings from './Settings';
+import Offers from './Offers';
+
 
 const buttons = [
     { id: 1, name: 'Products' },
@@ -12,9 +16,8 @@ const buttons = [
 
 export default function SellersMainScreen() {
     const [selectedBTN, setSelectedBTN] = useState(1)
-    useEffect(()=>{
-
-    },[selectedBTN])
+    let component;
+    
     return (
         <ScrollView>
             <View style={styles.seachDiv}>
@@ -38,7 +41,8 @@ export default function SellersMainScreen() {
                 
                 />
             </View>
-            <Products/>
+            {/* {component} */}
+            {selectedBTN ===1? <Products />: selectedBTN ===2? <Reviews />: selectedBTN ===3? <Offers />: <Settings />}
         </ScrollView>
     )
 }
