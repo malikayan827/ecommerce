@@ -28,6 +28,7 @@ import ShopmoreScreen from './screens/ShopmoreScreen';
 import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';
 import OrdersProcessings from './screens/ordersScreen/OrdersProcessings';
+import SearchScreenAyan from './screens/profileScreen/SearchScreenAyan';
 
 
 const Stack = createNativeStackNavigator();
@@ -104,14 +105,13 @@ export default function App() {
           }} component={OrdersProcessings}/> */}
 
 
-          <Stack.Screen name='Ratings'  
+          {<Stack.Screen name='Ratings'  
           // options={{
           //   header: ({ navigation }) => (
           //     <CustomHeader navigation={navigation} title="Orders Details"/>
           //   ),
           // }} 
-          component={RatingScreen}/>
-
+          component={RatingScreen}/>}
 
 
         </Stack.Navigator>
