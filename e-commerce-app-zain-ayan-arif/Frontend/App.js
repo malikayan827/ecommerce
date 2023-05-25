@@ -20,6 +20,7 @@ import Home from './screens/Home';
 import MyProfile from './screens/profileScreen/MyProfile';
 import CustomHeader from './components/CustomHeader';
 import Tabbar from './Tabbar';
+import RatingScreen from './screens/ratings/RatingScreen';
 
 import { I18nManager } from 'react-native';
 import DetailScreen from './screens/DetailScreen';
@@ -96,11 +97,20 @@ export default function App() {
           
           {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
 
-          <Stack.Screen name='Order Processing'  options={{
+          {/* <Stack.Screen name='Order Processing'  options={{
             header: ({ navigation }) => (
               <CustomHeader navigation={navigation} title="Orders Details"/>
             ),
-          }} component={OrdersProcessings}/>
+          }} component={OrdersProcessings}/> */}
+
+
+          <Stack.Screen name='Ratings'  
+          // options={{
+          //   header: ({ navigation }) => (
+          //     <CustomHeader navigation={navigation} title="Orders Details"/>
+          //   ),
+          // }} 
+          component={RatingScreen}/>
 
 
 
