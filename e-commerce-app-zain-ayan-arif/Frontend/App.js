@@ -29,6 +29,7 @@ import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';
 import OrdersProcessings from './screens/ordersScreen/OrdersProcessings';
 import SearchScreenAyan from './screens/profileScreen/SearchScreenAyan';
+import SellersMainScreen from './screens/SellersScreens/SellersMainScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -105,13 +106,15 @@ export default function App() {
           }} component={OrdersProcessings}/> */}
 
 
-          {<Stack.Screen name='Ratings'  
+          {/* {<Stack.Screen name='Ratings'  
           // options={{
           //   header: ({ navigation }) => (
           //     <CustomHeader navigation={navigation} title="Orders Details"/>
           //   ),
           // }} 
-          component={RatingScreen}/>}
+          component={RatingScreen}/>} */}
+
+          <Stack.Screen name='SellersMainScreen' component={SellersMainScreen} options={{ headerShown: false }} />
 
 
         </Stack.Navigator>
