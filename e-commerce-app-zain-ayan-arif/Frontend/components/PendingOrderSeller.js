@@ -1,8 +1,13 @@
-import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Linking, Modal, Animated, Dimensions } from 'react-native'
+import React, {useState} from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 
 const PendingOrderSeller = (props) => {
+    const [show, setShow] = useState(false);
+    const [modalAnimation] = useState(new Animated.Value(0));
+    const navigation = useNavigation();
+
     const item = props.item;
     const call = () => {
         let phoneNumber = '';
@@ -13,6 +18,36 @@ const PendingOrderSeller = (props) => {
         }
         Linking.openURL(phoneNumber);
     };
+
+    const handleReplyPress = () => {
+        setShow(true);
+        Animated.timing(modalAnimation, {
+            toValue: 1,
+            duration: 300,
+            useNativeDriver: true,
+        }).start();
+    };
+
+    const handleCloseModal = () => {
+        Animated.timing(modalAnimation, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+        }).start(() => {
+            setShow(false);
+        });
+    };
+
+    const modalTranslateY = modalAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [Dimensions.get('window').height, 0],
+    });
+
+    const handleSendOTP = () => {
+        handleCloseModal();
+        navigation.navigate('SellerOtp');
+    }
+
     return (
         <View>
             <View style={styles.card}>
@@ -31,7 +66,7 @@ const PendingOrderSeller = (props) => {
                     </View>
                 </View>
                 <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.Button}>
+                    <TouchableOpacity style={styles.Button} onPress={handleReplyPress}>
                         <Text style={styles.ButtonText}>Deliver Now</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.Button} onPress={call}>
@@ -39,6 +74,28 @@ const PendingOrderSeller = (props) => {
                     </TouchableOpacity>
                 </View>
             </View>
+
+            <Modal
+                transparent={true}
+                visible={show}
+                animationType="fade"
+                onRequestClose={handleCloseModal}
+            >
+                <View style={styles.ModalMainView}>
+                    <Animated.View
+                        style={[
+                            styles.ModalInnerView,
+                            { transform: [{ translateY: modalTranslateY }] },
+                        ]}
+                    >
+                        <Text style={styles.ModalHeadText}>Confirm Delivery</Text>
+                        <Text style={styles.ModalText}>Send OTP to {item.customer}'s Email Address</Text>
+                        <TouchableOpacity style={styles.ModalBTN} onPress={handleSendOTP}>
+                            <Text style={{ color: 'white', fontWeight: 'bold' }}>Send OTP</Text>
+                        </TouchableOpacity>
+                    </Animated.View>
+                </View>
+            </Modal>
         </View>
     )
 }
@@ -92,5 +149,43 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         fontWeight: 'bold'
+    },
+    ModalMainView: {
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    ModalInnerView: {
+        backgroundColor: 'white',
+        width: Dimensions.get('window').width - 50,
+        borderRadius: 10,
+        padding: 20
+    },
+    ModalHeadText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    ModalText: {
+        fontSize: 16,
+        textAlign: 'center',
+        margin: 10
+    },
+    ModalTextInput: {
+        borderWidth: 1,
+        borderRadius: 10,
+        padding: 10,
+        margin: 10
+    },
+    ModalBTN: {
+        backgroundColor: 'black',
+        width: 100,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        alignSelf: 'center'
     }
+
 })
