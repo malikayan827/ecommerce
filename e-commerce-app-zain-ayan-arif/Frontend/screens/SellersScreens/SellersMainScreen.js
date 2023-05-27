@@ -3,10 +3,10 @@ import React,{useState, useEffect} from 'react'
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Products from './Products';
 import Reviews from './Reviews';
-import Settings from './Settings';
 import Offers from './Offers';
 import Pending from './Pending';
 import Completed from './Completed';
+import SellerSettings from './SellerSettings';
 
 
 const buttons = [
@@ -46,7 +46,7 @@ export default function SellersMainScreen() {
                 />
             </View>
             {/* {component} */}
-            {selectedBTN ===1? <Products />: selectedBTN ===2? <Reviews />: selectedBTN ===3? <Offers />: selectedBTN ===4? <Settings />: selectedBTN ===5? <Pending />: <Completed />}
+            {selectedBTN ===1? <Products />: selectedBTN ===2? <Reviews />: selectedBTN ===3? <Offers />: selectedBTN ===4? <SellerSettings />: selectedBTN ===5? <Pending />: <Completed />}
         </ScrollView>
     )
 }
