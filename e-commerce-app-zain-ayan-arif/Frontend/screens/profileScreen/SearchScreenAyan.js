@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
-  Keyboard,
 } from "react-native";
 
 const dummySearches = [
@@ -22,29 +21,8 @@ export default function SearchScreenAyan({ navigation }) {
   const [recentSearchesVisible, setRecentSearchesVisible] = useState(false);
   const [searchHistory, setSearchHistory] = useState([]);
 
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener(
-      "keyboardDidShow",
-      () => {
-        setRecentSearchesVisible(true);
-      }
-    );
-
-    const keyboardDidHideListener = Keyboard.addListener(
-      "keyboardDidHide",
-      () => {
-        setRecentSearchesVisible(false);
-      }
-    );
-
-    return () => {
-      keyboardDidShowListener.remove();
-      keyboardDidHideListener.remove();
-    };
-  }, []);
-
-  const handleInputFocus = () => {
-    setRecentSearchesVisible(true);
+  const handleInputFocus = (text) => {
+    setRecentSearchesVisible(text.length === 0);
   };
 
   const handleRecentSearchPress = (item) => {
@@ -66,7 +44,8 @@ export default function SearchScreenAyan({ navigation }) {
           style={styles.input}
           placeholder="Search something"
           placeholderTextColor="#888"
-          onFocus={handleInputFocus}
+          onFocus={() => handleInputFocus("")}
+          onChangeText={(text) => handleInputFocus(text)}
           onSubmitEditing={(event) => {
             const searchText = event.nativeEvent.text;
             addToSearchHistory(searchText);
@@ -74,7 +53,7 @@ export default function SearchScreenAyan({ navigation }) {
         />
       </View>
 
-      {(!recentSearchesVisible && searchHistory.length > 0) && (
+      {!recentSearchesVisible && searchHistory.length > 0 && (
         <View style={styles.recentSearchesContainer}>
           <Text style={styles.recentSearchesTitle}>Search History</Text>
           <FlatList
@@ -113,10 +92,11 @@ export default function SearchScreenAyan({ navigation }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 14,
     alignItems: "center",
     justifyContent: "flex-start",
     backgroundColor: "#F8F8FF",
@@ -129,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 8,
     paddingHorizontal: 12,
-    width: 300,
+    width:'90%',
     backgroundColor: "white",
   },
   searchIcon: {
@@ -144,17 +124,19 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   recentSearchesContainer: {
-    marginTop: 20,
+    width:'90%'
   },
   recentSearchesTitle: {
+    
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 10,
   },
   recentSearchItem: {
-    paddingVertical: 8,
+    flex:1,
+    paddingVertical: 12,
     paddingHorizontal: 12,
-    borderBottomWidth: 1,
+    // borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
 });
