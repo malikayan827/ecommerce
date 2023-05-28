@@ -1,7 +1,6 @@
 import { View, Text ,Image ,TouchableOpacity,StyleSheet ,ImageBackground} from 'react-native'
 import React from 'react'
 import { Icon } from '@rneui/themed'
-import { BackgroundImage } from 'react-native-elements/dist/config';
 
 
 const FeaturesCard = ({navigation,item}) => {
@@ -12,7 +11,7 @@ const FeaturesCard = ({navigation,item}) => {
       
       <ImageBackground
         
-        source={{ uri: item.image }}
+        source={{ uri: require('../assets/images.jpg')}}
         className="w-40 h-24 m-4"
         imageStyle={{ borderRadius: 10}} // or any other value you want
       >

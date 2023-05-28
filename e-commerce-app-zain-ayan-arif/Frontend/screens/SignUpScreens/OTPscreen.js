@@ -92,9 +92,9 @@ export default function OTPscreen() {
                     />
                 </View>
             </View>
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:-24 }}>
                 <TouchableOpacity onPress={verifyOPTBTN} style={{ backgroundColor: '#000', width: 300, height: 50, borderRadius: 10, marginTop: 20 }}>
-                    <Text style={{ color: '#fff', textAlign: 'center', fontSize: 20, marginTop: 10 }}>Verify</Text>
+                    <Text style={{ color: '#fff', textAlign: 'center', fontSize: 20, marginTop: 10,}}>Verify</Text>
                 </TouchableOpacity>
             </View>
 
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     Verification_div_txt: {
         fontSize: 35,
         fontWeight: 'bold',
-        fontStyle: 'italic',
+        
     },
     otpContainer: {
         marginBottom: 70,
@@ -131,14 +131,16 @@ const styles = StyleSheet.create({
         borderColor: "#000",
         borderWidth: 0.5,
         backgroundColor: "#fff",
-    },
-    otpText: {
-        fontSize: 25,
+        width: 40, 
+        height: 40, 
+      },
+      otpText: {
+        fontSize: 18, 
         color: "#000",
         padding: 0,
         textAlign: 'center',
-        paddingHorizontal: 18,
-        paddingVertical: 10,
-    },
+        paddingHorizontal: 10,
+        paddingVertical: 8, 
+      },
 
 });

@@ -49,7 +49,7 @@ export default function UserEmail({navigation}) {
 
             </View>
             <View style={styles.upper_div}>
-                <Text>Hello World</Text>
+                {/* <Text>Hello World</Text> */}
 
             </View>
         </ScrollView>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     main_div: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        backgroundColor: '#3669C9'
+        backgroundColor: 'black'
     },
     upper_div: {
         height: Dimensions.get('window').height / 3.2,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     Welcome_txt: {
         fontSize: 35,
-        color: "#3669C9",
+        color: "black",
         fontWeight: '800',
         fontFamily: "Roboto",
         marginTop:30
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#3669C9',
+        borderBottomColor: 'black',
         paddingBottom: 5,
         marginBottom: 20,
         marginLeft: 30,
@@ -111,7 +111,9 @@ const styles = StyleSheet.create({
 
     },
     icon: {
-        color: '#3669C9'
+        color: 'black',
+        fontSize: 30,
+        
     },
     LoginBTN_div: {
         marginTop: 50,
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     LoginBTN: {
-        backgroundColor: '#3669C9',
+        backgroundColor: 'black',
         width: 200,
         height: 50,
         borderRadius: 20,
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
 
     },
     Forgot_pwd_txt: {
-        color: '#3669C9',
+        color: 'black',
         fontSize: 15,
         fontWeight: '500',
         marginRight: 20,
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     },
     Or_txt: {
         marginTop: 30,
-        color: '#3669C9',
+        color: 'black',
         fontSize: 15,
         fontWeight: '500',
         marginTop: 10,

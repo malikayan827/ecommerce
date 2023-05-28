@@ -20,7 +20,7 @@ export default function LoginScreen({navigation}) {
             showsVerticalScrollIndicator={false}
         >
             <View style={styles.upper_div}>
-                <Text className="text-red-900">Hello World</Text>
+                {/* <Text className="text-red-900">Hello World</Text> */}
 
             </View>
             <View style={styles.Lower_div}>
@@ -31,7 +31,7 @@ export default function LoginScreen({navigation}) {
                 <View>
                     <View style={styles.Fields_main_div}>
                         <View style={styles.Fields_div}>
-                            <Text className="text-blue-600">test target</Text>
+                            {/* <Text className="text-blue-600">test target</Text> */}
                             <Ionicons name="mail-outline" size={40} style={styles.icon} />
                             <TextInput style={styles.Fields_txt} placeholder='Email Address' />
                         </View>
@@ -50,7 +50,7 @@ export default function LoginScreen({navigation}) {
                         </View>
                         <View>
                             <Text style={styles.Or_txt}>Don't Have an Account?</Text>
-                            <TouchableOpacity onPress={goSignup}><Text style={styles.Or_txt}>Try Signup </Text></TouchableOpacity>
+                            <TouchableOpacity onPress={goSignup}><Text style={styles.Or_txt}>Signup </Text></TouchableOpacity>
                         </View>
                     </View>
                 </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     main_div: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        backgroundColor: '#3669C9'
+        backgroundColor: 'black'
     },
     upper_div: {
         height: Dimensions.get('window').height / 3.2,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     Welcome_txt: {
         fontSize: 35,
-        color: "#3669C9",
+        color: "black",
         fontWeight: '800',
         fontFamily: "Roboto"
     },
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#3669C9',
+        borderBottomColor: 'black',
         paddingBottom: 5,
         marginBottom: 20,
         marginLeft: 30,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 
     },
     icon: {
-        color: '#3669C9'
+        color: 'black'
     },
     LoginBTN_div: {
         marginTop: 50,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     LoginBTN: {
-        backgroundColor: '#3669C9',
+        backgroundColor: 'black',
         width: 200,
         height: 50,
         borderRadius: 20,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
 
     },
     Forgot_pwd_txt: {
-        color: '#3669C9',
+        color: 'black',
         fontSize: 15,
         fontWeight: '500',
         marginRight: 20,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
     },
     Or_txt: {
-        color: '#3669C9',
+        color: 'black',
         fontSize: 15,
         fontWeight: '500',
         marginTop: 10,
