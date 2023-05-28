@@ -3,6 +3,9 @@ import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 
+import {SellerModalStyles} from './Styles/SellerModalStyles'
+
+
 const PendingOrderSeller = (props) => {
     const [show, setShow] = useState(false);
     const [modalAnimation] = useState(new Animated.Value(0));
@@ -81,16 +84,16 @@ const PendingOrderSeller = (props) => {
                 animationType="fade"
                 onRequestClose={handleCloseModal}
             >
-                <View style={styles.ModalMainView}>
+                <View style={SellerModalStyles.ModalMainView}>
                     <Animated.View
                         style={[
-                            styles.ModalInnerView,
+                            SellerModalStyles.ModalInnerView,
                             { transform: [{ translateY: modalTranslateY }] },
                         ]}
                     >
-                        <Text style={styles.ModalHeadText}>Confirm Delivery</Text>
-                        <Text style={styles.ModalText}>Send OTP to {item.customer}'s Email Address</Text>
-                        <TouchableOpacity style={styles.ModalBTN} onPress={handleSendOTP}>
+                        <Text style={SellerModalStyles.ModalHeadText}>Confirm Delivery</Text>
+                        <Text style={SellerModalStyles.ModalText}>Send OTP to {item.customer}'s Email Address</Text>
+                        <TouchableOpacity style={SellerModalStyles.ModalBTN} onPress={handleSendOTP}>
                             <Text style={{ color: 'white', fontWeight: 'bold' }}>Send OTP</Text>
                         </TouchableOpacity>
                     </Animated.View>
@@ -149,43 +152,5 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         fontWeight: 'bold'
-    },
-    ModalMainView: {
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    ModalInnerView: {
-        backgroundColor: 'white',
-        width: Dimensions.get('window').width - 50,
-        borderRadius: 10,
-        padding: 20
-    },
-    ModalHeadText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center'
-    },
-    ModalText: {
-        fontSize: 16,
-        textAlign: 'center',
-        margin: 10
-    },
-    ModalTextInput: {
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 10,
-        margin: 10
-    },
-    ModalBTN: {
-        backgroundColor: 'black',
-        width: 100,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        alignSelf: 'center'
     }
-
 })

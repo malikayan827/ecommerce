@@ -78,11 +78,11 @@ export default function App() {
           
           {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
 
-          <Stack.Screen name='Order Processing'  options={{
+          {/* <Stack.Screen name='Order Processing'  options={{
             header: ({ navigation }) => (
               <CustomHeader navigation={navigation} title="Orders Details"/>
             ),
-          }} component={OrdersProcessings}/>
+          }} component={OrdersProcessings}/> */}
 
 
           {/* <Stack.Screen name='Ratings'  
@@ -118,6 +118,7 @@ export default function App() {
           // /> 
         */}
 
+          <Stack.Screen name='SellersMainScreen' component={SellersMainScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
       </NavigationContainer>
