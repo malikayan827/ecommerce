@@ -68,21 +68,21 @@ export default function App() {
 
          <Stack.Screen name='Settings' component={ProfileSettings}  />  */}
 
-          {/* <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/>  */}
+          <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/> 
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
-          {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen}/> */}
+          <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} />
           {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
 
 
           
           {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
 
-          <Stack.Screen name='Order Processing'  options={{
+          {/* <Stack.Screen name='Order Processing'  options={{
             header: ({ navigation }) => (
               <CustomHeader navigation={navigation} title="Orders Details"/>
             ),
-          }} component={OrdersProcessings}/>
+          }} component={OrdersProcessings}/> */}
 
 
           {/* <Stack.Screen name='Ratings'  
