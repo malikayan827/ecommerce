@@ -1,12 +1,8 @@
-//send mail to user
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
 import Mailgen from 'mailgen';
+import ENV from '../config.js';
 
-import ENV from '../config.js'
-
-
-/** send mail from real gmail account */
-// its a post request
+// send mail from a real Gmail account
 export default async function SendMail(username, userEmail, text, subject) {
     console.log(username, userEmail, text, subject);
   
@@ -17,11 +13,11 @@ export default async function SendMail(username, userEmail, text, subject) {
   
     // Check if the SMTP settings are correct
     const config = {
-      service: 'gmail',
-      auth: {
-        user: ENV.EMAIL,
-        pass: ENV.PASSWORD
-      }
+        service: 'gmail',
+        auth: {
+            user: ENV.EMAIL,
+            pass: ENV.PASSWORD
+        }
     };
   
     // Create a new transporter
@@ -29,27 +25,27 @@ export default async function SendMail(username, userEmail, text, subject) {
   
     // Create a new Mailgen instance
     const MailGenerator = new Mailgen({
-      theme: 'default',
-      product: {
-        name: 'zain',
-        link: 'https://mailgen.js/'
-      }
+        theme: 'default',
+        product: {
+            name: 'Khareedo Farokht',
+            link: 'https://mailgen.js/'
+        }
     });
   
     // Create a new response object
     const response = {
-      body: {
-        name: username,
-        intro: 'Mail from Our Site',
-        table: {
-          data: [
-            {
-              Mail: text
-            }
-          ]
-        },
-        outro: 'Thank you for choosing us'
-      }
+        body: {
+            name: username,
+            intro: 'From Khareedo Farokht',
+            table: {
+                data: [
+                    {
+                        Mail: text
+                    }
+                ]
+            },
+            outro: 'Thank you for choosing us'
+        }
     };
   
     // Generate the email
@@ -57,17 +53,17 @@ export default async function SendMail(username, userEmail, text, subject) {
   
     // Create a new message object
     const message = {
-      from: ENV.EMAIL,
-      to: userEmail,
-      subject: subject || 'OTP for reset password',
-      html: mail
+        from: ENV.EMAIL,
+        to: userEmail,
+        subject: subject || 'OTP for reset password',
+        html: mail
     };
   
     // Send the mail
     try {
-      await transporter.sendMail(message);
-      return { message: 'Mail sent successfully...  if you don\'t get it check in Spam folder!' };
+        await transporter.sendMail(message);
+        return { message: 'Mail sent successfully... If you don\'t get it, please check your Spam folder!' };
     } catch (error) {
-      return { error: 'Error in sending mail' };
+        return { error: 'Error in sending mail' };
     }
-  }
+}
