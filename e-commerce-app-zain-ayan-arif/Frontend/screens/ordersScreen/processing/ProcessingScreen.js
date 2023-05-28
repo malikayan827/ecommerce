@@ -7,7 +7,7 @@ const ProcessingScreen = ({orders}) => {
     <View>
       <FlatList
     data={orders}
-    keyExtractor={(item) => item.id}
+    keyExtractor={(item) =>  item.orderNum}
     renderItem={({ item }) => (
       <CurrentInfoCard status={item.status} qty={item.qty} time={item.time} amt={item.amt} orderNum={item.orderNum}color="orange"/>
     )}

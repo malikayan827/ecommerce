@@ -7,12 +7,18 @@ const addElipse = (str, limit) => {
 };
 
 export default function ItemCard({navigation,item}) {
+  console.log("item",item)
 
-  const { id, title, description, image} = item;
+  const { key, title, img,price} = item;
+
+  console.log("item",item)
 
   const DetailsNav = () => {
     const params = {
-      image,
+      key,
+      img,
+      price,
+      title
     };
     navigation.navigate('DetailScreen', params);
   };
@@ -50,7 +56,7 @@ export default function ItemCard({navigation,item}) {
     
     style={styles.item}>
     
-      <Image source={{ uri: item.image }} style={styles.item_image} />
+      <Image source={{ uri: item.img[0] }} style={styles.item_image} />
       <View>
         <View style={styles.rating}>
           {fullStarIcons}
@@ -58,11 +64,11 @@ export default function ItemCard({navigation,item}) {
           {emptyStarIcons}
         </View>
         <View style={{ width: '100%' }}>
-          <Text style={styles.desc}>{addElipse(item.description, 20)}</Text>
-          <Text style={styles.title}>{addElipse(item.title, 35)}</Text>
+          {/* <Text style={styles.desc}>{addElipse(item.description, 20)}</Text> */}
+          <Text style={styles.title}>{addElipse(title, 35)}</Text>
         </View>
         <View>
-          <Text style={styles.price}>{item.price}</Text>
+          <Text style={styles.price}>{price}</Text>
         </View>
       </View>
     </TouchableOpacity>

@@ -7,12 +7,53 @@ import HeadingComponent from '../components/HeadingComponent.js';
 import {catg} from "../Help/Catg.js"
 
 
+const books = [
+      {
+        desc: "lorem ipsum sdasalisdalksda",
+        key: 0,
+        price: 1000,
+        title: "book1",
+        "img": [
+          "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history3.png?alt=media&token=a1c91bd7-28eb-4c30-97e5-2417d971206c",
+          "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history2.jpeg?alt=media&token=8218c90e-5bfa-4d14-aeb8-5571c9e238c3"
+        ],
+      },
+      {
+        desc: "dasalisdalksda",
+        key: 1,
+        price: 2000,
+        title: "book2",
+        img: [
+          "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history2.jpeg?alt=media&token=8218c90e-5bfa-4d14-aeb8-5571c9e238c3"
+        ],
+      },
+      {
+        desc: "lorem ipsum sdasalisdalksda",
+        key: 2,
+        price: 3000,
+        title: "book1",
+        img: [
+          "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history13.jpeg?alt=media&token=4cdd5641-31d7-4bb8-a0e6-f0c44f5a0d87"
+        ],
+      },
+      {
+        desc: "dasalisdalksda",
+        key: 3,
+        price: 4000,
+        title: "book4",
+        img: [
+          "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history1.jpeg?alt=media&token=9909b193-e1e6-4f15-a778-a2f9d93a5b62"
+        ],
+      }
+]
+
+console.log("books",books)
 
 
 export default function Home({navigation}) {
     return (
         <ScrollView>
-            <ImageBackground source={{ uri: 'https://res.cloudinary.com/dlhwfesiz/image/upload/v1679702885/HomeBanner_rq1icw.jpg' }} style={styles.banner}>
+            <ImageBackground  source={{ uri: 'https://res.cloudinary.com/dlhwfesiz/image/upload/v1679702885/HomeBanner_rq1icw.jpg' }} style={styles.banner}>
                 <View style={styles.banner_View}>
                     <Text style={styles.banner_txt}>Its Our</Text>
                     <Text style={styles.banner_txt}>LOGO</Text>
@@ -23,24 +64,19 @@ export default function Home({navigation}) {
 
             <View >
 
-
                <HeadingComponent heading={"New"} desc={"you have never seen this before"}/>
 
                 <FlatList
-                    data={data}
-                    keyExtractor={(item) => item.id}
+                    data={books}
+                    keyExtractor={(item) => item.key.toString()}
                     renderItem={({ item }) => (
                         <ItemCard item={item} navigation={navigation}/>
                     )}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    
                     style={{ margin: 20 }}
-
-
                 />
 
-                
                 <HeadingComponent heading={"Categories"} desc={"options for you bro!"}/>
               
                 <FlatList
@@ -55,8 +91,6 @@ export default function Home({navigation}) {
                   
                 )}
                 />
-
-
 
             </View>
 

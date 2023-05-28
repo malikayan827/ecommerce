@@ -68,10 +68,10 @@ export default function App() {
 
          <Stack.Screen name='Settings' component={ProfileSettings}  />  */}
 
-          {/* <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/>  */}
+          <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/> 
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
-          {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen}/> */}
+          <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} />
           {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
 
 
