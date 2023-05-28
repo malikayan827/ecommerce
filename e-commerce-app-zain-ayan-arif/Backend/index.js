@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import {generateOTP, registerSuccesFull} from './Controllers/OTPcon.js'
+import {generateOTP, registerSuccesFull, OTPforDelivery} from './Controllers/OTPcon.js'
 
 const app = express()
 
@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 
 app.post('/generateOTP', generateOTP)
 app.post('/sendRegisterMail', registerSuccesFull)
+app.post('/OTPforDelivery', OTPforDelivery)
 
 
 
