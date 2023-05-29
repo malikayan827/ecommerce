@@ -29,6 +29,10 @@ import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';
 import OrdersProcessings from './screens/ordersScreen/OrdersProcessings';
 import SellersMainScreen from './screens/SellersScreens/SellersMainScreen';
+import DeilveredScreen from './screens/ordersScreen/Delivered/DeilveredScreen';
+import CancelledScreen from './screens/ordersScreen/Cancelled/CancelledScreen';
+import ReviewOrder from './screens/ordersScreen/ReviewOrder';
+import SellerSettings from './screens/SellersScreens/SellerSettings';
 
 
 const Stack = createNativeStackNavigator();
@@ -68,10 +72,10 @@ export default function App() {
 
          <Stack.Screen name='Settings' component={ProfileSettings}  />  */}
 
-          <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/> 
+          {/* <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/>  */}
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
-          <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} />
+          {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} /> */}
           {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
 
 
@@ -118,7 +122,7 @@ export default function App() {
           // /> 
         */}
 
-          <Stack.Screen name='SellersMainScreen' component={SellersMainScreen} options={{ headerShown: false }} />
+          <Stack.Screen name='SellersMainScreen' component={ReviewOrder} options={{ headerShown: false }} />
 
         </Stack.Navigator>
       </NavigationContainer>

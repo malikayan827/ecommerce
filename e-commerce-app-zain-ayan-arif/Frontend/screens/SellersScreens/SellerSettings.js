@@ -50,13 +50,7 @@ export default function ProfileSettings({ navigation }) {
         { label: 'Terms and Conditions' },
       ],
     },
-    {
-      title: 'Security and Privacy',
-      data: [
-        { label: 'Password Change' },
-        { label: 'Privacy Settings' },
-      ],
-    },
+   
   ];
   const renderSectionHeader = ({ section: { title } }) => (
     <View style={styles.section}>
@@ -94,12 +88,12 @@ export default function ProfileSettings({ navigation }) {
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
       />
-      <View style={styles.changeTextContainer}>
-        
-        <TouchableOpacity onPress={toggleShowPassword}>
-          <Image style={styles.passwordIcon} source={passwordIconSource} />
+     <TouchableOpacity
+          style={styles.detailsButton}
+          onPress={() => handleDetailsPress(item)}
+        >
+          <Text style={styles.detailsButtonText}>Save</Text>
         </TouchableOpacity>
-      </View>
     </ScrollView>
   );
 }
@@ -189,4 +183,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     margin: 5,
   },
+  detailsButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: 'black',
+    borderRadius: 5,
+    width: 170,
+    flexDirection: 'row',
+    height: 60,
+    margin:50
+    
+  },
+  detailsButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    
+  },
+ 
 });

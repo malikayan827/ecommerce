@@ -28,10 +28,7 @@ const OrderDetails = () => {
     deliveryDate: 'May 25, 2023',
   };
 
-  const handleDetailsPress = (item) => {
-    // Handle details button press for the specific order item
-    console.log('Details pressed:', item);
-  };
+ 
 
   const renderOrderItem = ({ item }) => (
     <Card>
@@ -43,12 +40,7 @@ const OrderDetails = () => {
           <Text>{`Size: ${item.size}`}</Text>
           <Text>{`Quantity: ${item.quantity}`}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.detailsButton}
-          onPress={() => handleDetailsPress(item)}
-        >
-          <Text style={styles.detailsButtonText}>Details</Text>
-        </TouchableOpacity>
+       
       </View>
     </Card>
   );
@@ -118,17 +110,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
   },
-  detailsButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    backgroundColor: 'black',
-    borderRadius: 5,
-  },
-  detailsButtonText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
+ 
 });
 
 export default OrderDetails;
