@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator();
 
 
 const ModalScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   return (
     <View>
         <Pressable
@@ -48,13 +48,8 @@ const ModalScreen = () => {
                 </Tab.Navigator>
               </View>
 
-                  
-
             </View>
-
       </Modal>
-
-    
     </View>
   );
 };

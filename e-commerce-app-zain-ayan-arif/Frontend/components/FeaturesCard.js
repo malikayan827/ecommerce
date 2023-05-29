@@ -1,18 +1,16 @@
 import { View, Text ,Image ,TouchableOpacity,StyleSheet ,ImageBackground} from 'react-native'
 import React from 'react'
 import { Icon } from '@rneui/themed'
-import { BackgroundImage } from 'react-native-elements/dist/config';
 
 
 const FeaturesCard = ({navigation,item}) => {
-  console.log(item);
+  console.log("features",item);
 
     return (
       <TouchableOpacity>
       
-      <ImageBackground
-        
-        source={{ uri: item.image }}
+      <ImageBackground  source={{ uri: item.image}} 
+
         className="w-40 h-24 m-4"
         imageStyle={{ borderRadius: 10}} // or any other value you want
       >
