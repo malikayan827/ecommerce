@@ -1,11 +1,18 @@
-import { View, Text } from 'react-native'
+import { View, Text ,FlatList} from 'react-native'
 import React from 'react'
 import CurrentInfoCard from '../components/CurrentInfoCard'
 
-const CancelledScreen = () => {
+const CancelledScreen = ({orders}) => {
+  // console.log(orders)
   return (
     <View>
-        <CurrentInfoCard text="cancelled" color="red"/>
+       <FlatList
+    data={orders}
+    keyExtractor={(item) => item.orderNum}
+    renderItem={({ item }) => (
+      <CurrentInfoCard status={item.status} qty={item.qty} time={item.time} amt={item.amt} orderNum={item.orderNum} trackNum={item.trackNum} color="red"/>
+    )}
+   />
     </View>
   )
 }

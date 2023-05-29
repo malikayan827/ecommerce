@@ -23,7 +23,7 @@ import Tabbar from './Tabbar';
 import RatingScreen from './screens/ratings/RatingScreen';
 
 import { I18nManager } from 'react-native';
-import DetailScreen from './screens/DetailScreen';
+import DetailScreen from './screens/detailsScreen/DetailScreen';
 import ShopmoreScreen from './screens/ShopmoreScreen';
 import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';
@@ -68,10 +68,10 @@ export default function App() {
 
          <Stack.Screen name='Settings' component={ProfileSettings}  />  */}
 
-          {/* <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/>  */}
+          <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/> 
           {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
 
-          {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen}/> */}
+          <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} />
           {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
 
 
@@ -99,7 +99,7 @@ export default function App() {
 
           {/* <Stack.Screen name='fitler&seacrch' component={ModalScreen}/> */}
 
-          <Stack.Screen name='Search' component={SearchScreenAyan} 
+          {/* <Stack.Screen name='Search' component={SearchScreenAyan} 
           //  options={{
           //   headerLeft: () => (
           //     <TouchableOpacity
@@ -115,8 +115,10 @@ export default function App() {
           //   headerTransparent: true,
 
           // }} 
-          /> 
+          // /> 
+        */}
 
+          <Stack.Screen name='SellersMainScreen' component={SellersMainScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
       </NavigationContainer>

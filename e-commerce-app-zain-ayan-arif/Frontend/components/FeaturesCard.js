@@ -4,14 +4,13 @@ import { Icon } from '@rneui/themed'
 
 
 const FeaturesCard = ({navigation,item}) => {
-  console.log(item);
+  console.log("features",item);
 
     return (
       <TouchableOpacity>
       
-      <ImageBackground
-        
-        source={{ uri: require('../assets/images.jpg')}}
+      <ImageBackground  source={{ uri: item.image}} 
+
         className="w-40 h-24 m-4"
         imageStyle={{ borderRadius: 10}} // or any other value you want
       >
