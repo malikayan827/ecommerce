@@ -23,7 +23,7 @@ import Tabbar from './Tabbar';
 import RatingScreen from './screens/ratings/RatingScreen';
 
 import { I18nManager } from 'react-native';
-import DetailScreen from './screens/DetailScreen';
+import DetailScreen from './screens/detailsScreen/DetailScreen';
 import ShopmoreScreen from './screens/ShopmoreScreen';
 import ShippingAddress from './screens/profileScreen/ShippingAddress';
 import OrderDetails from './screens/profileScreen/OrderDetails';

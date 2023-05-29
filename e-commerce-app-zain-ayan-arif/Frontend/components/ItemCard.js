@@ -9,7 +9,7 @@ const addElipse = (str, limit) => {
 export default function ItemCard({navigation,item}) {
   console.log("item",item)
 
-  const { key, title, img,price} = item;
+  const { key, title, img,price,desc} = item;
 
   console.log("item",item)
 
@@ -18,7 +18,8 @@ export default function ItemCard({navigation,item}) {
       key,
       img,
       price,
-      title
+      title,
+      desc
     };
     navigation.navigate('DetailScreen', params);
   };
@@ -66,6 +67,7 @@ export default function ItemCard({navigation,item}) {
         <View style={{ width: '100%' }}>
           {/* <Text style={styles.desc}>{addElipse(item.description, 20)}</Text> */}
           <Text style={styles.title}>{addElipse(title, 35)}</Text>
+          <Text style={styles.title}>{addElipse(desc, 35)}</Text>
         </View>
         <View>
           <Text style={styles.price}>{price}</Text>
