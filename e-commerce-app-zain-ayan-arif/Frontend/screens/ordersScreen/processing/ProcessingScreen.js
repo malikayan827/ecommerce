@@ -2,7 +2,7 @@ import { View, Text,FlatList } from 'react-native'
 import React from 'react'
 import CurrentInfoCard from '../components/CurrentInfoCard'
 
-const ProcessingScreen = ({orders}) => {
+const ProcessingScreen = ({orders,item}) => {
   return (
     <View>
       <FlatList
@@ -11,6 +11,7 @@ const ProcessingScreen = ({orders}) => {
     renderItem={({ item }) => (
       <CurrentInfoCard status={item.status} qty={item.qty} time={item.time} amt={item.amt} orderNum={item.orderNum}color="orange"/>
     )}
+    
    />
     </View>
   )
