@@ -33,8 +33,7 @@ import DeilveredScreen from './screens/ordersScreen/Delivered/DeilveredScreen';
 import CancelledScreen from './screens/ordersScreen/Cancelled/CancelledScreen';
 import ReviewOrder from './screens/ordersScreen/ReviewOrder';
 import SellerSettings from './screens/SellersScreens/SellerSettings';
-
-
+import AddProduct from './screens/SellersScreens/AddProduct';
 const Stack = createNativeStackNavigator();
 
 
@@ -122,7 +121,7 @@ export default function App() {
           // /> 
         */}
 
-          <Stack.Screen name='SellersMainScreen' component={ReviewOrder} options={{ headerShown: false }} />
+          <Stack.Screen name='SellersMainScreen' component={AddProduct} options={{ headerShown: false }} />
 
         </Stack.Navigator>
       </NavigationContainer>

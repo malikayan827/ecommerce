@@ -11,7 +11,6 @@ import {
   Switch,
   ScrollView,
   Dimensions,
-  SectionList,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
@@ -39,53 +38,29 @@ export default function ProfileSettings({ navigation }) {
     }
   };
 
+  const cancelImage = () => {
+    setSelectedImage(null);
+  };
+
   const DATA = [
-    {
-      title: "Account Information",
-      data: [{ label: "Email Address" }, { label: "User Name" }],
-    },
-    {
-      title: "Personal Information",
-      data: [
-        { label: "First Name" },
-        { label: "Last Name" },
-        { label: "Address" },
-        { label: "CNIC" },
-        { label: "Phone Number" },
-      ],
-    },
-    {
-      title: "Store Information",
-      data: [
-        { label: "Store Name" },
-        { label: "Store Description" },
-        //{ label: 'Store Logo' },
-      ],
-    },
-    {
-      title: "Store Policies",
-      data: [
-        { label: "Return and Refund Policy" },
-        { label: "Terms and Conditions" },
-      ],
-    },
+    { label: "Product Title" },
+    { label: "Category" },
+    { label: "Description" },
+    { label: "Price" },
+    { label: "Quantity" },
+    { label: "Brand" },
+    { label: "Shipping Options" },
+    { label: "Colours" },
+    { label: "Sizes" },
+    { label: "Tags/Keywords" },
+    { label: "Product Weight and Dimensions" },
+    { label: "Availability" },
+    { label: "Fixed Price"},
+    { label: "Display Price" },
+    { label: "Additional Information" },
   ];
 
-  const renderSectionHeader = ({ section: { title } }) => (
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-    </View>
-  );
-
   const renderItem = ({ item }) => {
-    if (item.type === "switch") {
-      return (
-        <View style={styles.notificationItem}>
-          <Text style={styles.notificationText}>{item.label}</Text>
-          <Switch value={item.value} onValueChange={setSalesNotification} />
-        </View>
-      );
-    }
     return (
       <View style={styles.inputBox}>
         <TextInput
@@ -95,9 +70,6 @@ export default function ProfileSettings({ navigation }) {
         />
       </View>
     );
-  };
-  const cancelImage = () => {
-    setSelectedImage(null);
   };
 
   return (
@@ -120,11 +92,10 @@ export default function ProfileSettings({ navigation }) {
       {selectedImage && (
         <Image source={{ uri: selectedImage }} style={styles.selectedImage} />
       )}
-      <SectionList
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
+      <FlatList
+        data={DATA}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
       />
       <TouchableOpacity style={styles.detailsButton}>
         <Text style={styles.detailsButtonText}>Save</Text>
@@ -157,17 +128,6 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginLeft: 10,
-  },
-  section: {
-    marginTop: 10,
-    marginBottom: 20,
-    alignSelf: "flex-start",
-    marginLeft: 4,
-  },
-  sectionTitle: {
-    fontWeight: "bold",
-    fontSize: 20,
-    margin: 5,
   },
   inputBox: {
     borderRadius: 10,
@@ -243,6 +203,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 170,
     height: 40,
+    marginBottom: 20,
   },
   uploadButtonText: {
     color: "#fff",
