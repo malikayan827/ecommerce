@@ -34,12 +34,12 @@ export default function ProfileSettings({ navigation }) {
     });
 
     if (!result.cancelled) {
-      setSelectedImage(result.uri);
+      setImages((prevImages) => [...prevImages, result.uri]);
     }
   };
 
-  const cancelImage = () => {
-    setSelectedImage(null);
+  const removeImage = (index) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
   };
 
   const DATA = [
@@ -55,7 +55,7 @@ export default function ProfileSettings({ navigation }) {
     { label: "Tags/Keywords" },
     { label: "Product Weight and Dimensions" },
     { label: "Availability" },
-    { label: "Fixed Price"},
+    { label: "Fixed Price" },
     { label: "Display Price" },
     { label: "Additional Information" },
   ];
@@ -83,19 +83,43 @@ export default function ProfileSettings({ navigation }) {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.uploadButton} onPress={pickImage}>
-        <Text style={styles.uploadButtonText}>Upload Image</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.uploadButton} onPress={cancelImage}>
-        <Text style={styles.uploadButtonText}>Cancel</Text>
-      </TouchableOpacity>
-      {selectedImage && (
+
+      <View style={styles.imagesContainer}>
+        <TouchableOpacity
+          style={[
+            styles.uploadButton,
+            { opacity: images.length === 3 ? 0.5 : 1 },
+          ]}
+          onPress={pickImage}
+          disabled={images.length === 3}
+        >
+          <Text style={styles.uploadButtonText}>
+            {`Choose ${3 - images.length}  ${
+              images.length === 2 ? "image" : "images"
+            }`}
+          </Text>
+        </TouchableOpacity>
+        {images.map((imageUri, index) => (
+          <View key={index} style={styles.imageContainer}>
+            <Image source={{ uri: imageUri }} style={styles.uploadedPhoto} />
+            <TouchableOpacity
+              style={styles.removeButton}
+              onPress={() => removeImage(index)}
+            >
+              <Text style={styles.removeButtonText}>Remove</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
+
+      {/* {selectedImage && (
         <Image source={{ uri: selectedImage }} style={styles.selectedImage} />
-      )}
+      )} */}
       <FlatList
         data={DATA}
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
+        style={{ marginTop: 20 }}
       />
       <TouchableOpacity style={styles.detailsButton}>
         <Text style={styles.detailsButtonText}>Save</Text>

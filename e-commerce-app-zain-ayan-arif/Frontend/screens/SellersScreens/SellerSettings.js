@@ -26,18 +26,25 @@ export default function ProfileSettings({ navigation }) {
     ? require("..//../assets/unshowPassword.png")
     : require("..//../assets/showPassword.png");
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+    const pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      if (!result.cancelled) {
+        setImages(prevImages => [...prevImages, result.uri]);
+      }
+    };
+    
 
-    if (!result.cancelled) {
-      setSelectedImage(result.uri);
-    }
-  };
+    const removeImage = (index) => {
+      setImages(prevImages => prevImages.filter((_, i) => i !== index));
+ 
+    };
+    
 
   const DATA = [
     {
@@ -96,9 +103,7 @@ export default function ProfileSettings({ navigation }) {
       </View>
     );
   };
-  const cancelImage = () => {
-    setSelectedImage(null);
-  };
+  
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -111,16 +116,34 @@ export default function ProfileSettings({ navigation }) {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.uploadButton} onPress={pickImage}>
-        <Text style={styles.uploadButtonText}>Upload Image</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.uploadButton} onPress={cancelImage}>
-        <Text style={styles.uploadButtonText}>Cancel</Text>
-      </TouchableOpacity>
-      {selectedImage && (
-        <Image source={{ uri: selectedImage }} style={styles.selectedImage} />
-      )}
-      <SectionList
+      <View style={styles.imagesContainer}>
+        <TouchableOpacity
+          style={[
+            styles.uploadButton,
+            { opacity: images.length === 3 ? 0.5 : 1 },
+          ]}
+          onPress={pickImage}
+          disabled={images.length === 3}
+        >
+          <Text style={styles.uploadButtonText}>
+            {`Choose ${3 - images.length}  ${
+              images.length === 2 ? "image" : "images"
+            }`}
+          </Text>
+        </TouchableOpacity>
+        {images.map((imageUri, index) => (
+          <View key={index} style={styles.imageContainer}>
+            <Image source={{ uri: imageUri }} style={styles.uploadedPhoto} />
+            <TouchableOpacity
+              style={styles.removeButton}
+              onPress={() => removeImage(index)}
+            >
+              <Text style={styles.removeButtonText}>Remove</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
+      <SectionList style={{ marginTop: 20 }}
         sections={DATA}
         keyExtractor={(item, index) => item + index}
         renderItem={renderItem}
