@@ -6,13 +6,16 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 const addElipse = (str, limit) => {
     return str.length > limit ? str.substring(0, limit) + '....' : str;
-  };
+};
 
-const Products = () => {
+const Products = ({ navigation }) => {
+    const addProcHandler = () => {
+        navigation.navigate('AddProduct')
+    }
     return (
         <View>
             <View style={styles.btnDiv}>
-                <TouchableOpacity style={styles.addprocBTN}>
+                <TouchableOpacity style={styles.addprocBTN} onPress={addProcHandler}>
                     <View style={styles.BTNinnerDiv}>
                         <Text style={styles.addprocBTNText}>Add Product</Text>
                         <Ionicons name='add-sharp' size={30} color={'#fff'} />
@@ -24,11 +27,11 @@ const Products = () => {
                 data={data}
                 renderItem={({ item }) => (
                     <View style={styles.ProcCard}>
-                        <Image source={{ uri: item.image }} style={styles.procImage}/>
+                        <Image source={{ uri: item.image }} style={styles.procImage} />
                         <View style={styles.procDesc}>
                             <Text style={styles.title}>{addElipse(item.title, 20)}</Text>
                             <Text style={styles.desc}>{addElipse(item.description, 25)}</Text>
-                            <Text style={{marginTop:10}}>Stock</Text>
+                            <Text style={{ marginTop: 10 }}>Stock</Text>
                         </View>
                     </View>
                 )}
@@ -72,36 +75,36 @@ const styles = StyleSheet.create({
         marginRight: 15,
         marginTop: 2
     },
-    procList:{
-        marginTop:30
+    procList: {
+        marginTop: 30
     },
-    procImage:{
-        width:100,
-        height:100,
-        marginRight:30,
-        borderRadius:8
+    procImage: {
+        width: 100,
+        height: 100,
+        marginRight: 30,
+        borderRadius: 8
     },
-    ProcCard:{
-        flexDirection:'row',
+    ProcCard: {
+        flexDirection: 'row',
         width: Dimensions.get('window').width - 50,
-        marginBottom:40,
-        marginLeft:30,
-        backgroundColor:'#fff',
-        borderRadius:5,
-        height:130,
-        justifyContent:'space-evenly',
-        alignItems:'center'
+        marginBottom: 40,
+        marginLeft: 30,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        height: 130,
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
     },
-    procDesc:{
+    procDesc: {
         width: 200,
         // backgroundColor:'red'
     }
     ,
-    title:{
-        fontSize:20,
-        fontWeight:'600'
+    title: {
+        fontSize: 20,
+        fontWeight: '600'
     },
-    desc:{
-        fontSize:16
+    desc: {
+        fontSize: 16
     }
 })

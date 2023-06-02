@@ -17,7 +17,9 @@ const books = [
           "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history3.png?alt=media&token=a1c91bd7-28eb-4c30-97e5-2417d971206c",
           "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history2.jpeg?alt=media&token=8218c90e-5bfa-4d14-aeb8-5571c9e238c3"
         ],
-      },
+        rating: '4.5'
+
+      }, 
       {
         desc: "dasalisdalksda",
         key: 1,
@@ -26,6 +28,8 @@ const books = [
         img: [
           "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history2.jpeg?alt=media&token=8218c90e-5bfa-4d14-aeb8-5571c9e238c3"
         ],
+        rating: '4.5'
+
       },
       {
         desc: "lorem ipsum sdasalisdalksda",
@@ -35,6 +39,8 @@ const books = [
         img: [
           "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history13.jpeg?alt=media&token=4cdd5641-31d7-4bb8-a0e6-f0c44f5a0d87"
         ],
+        rating: '4.5'
+
       },
       {
         desc: "dasalisdalksda",
@@ -44,6 +50,8 @@ const books = [
         img: [
           "https://firebasestorage.googleapis.com/v0/b/everybookdotcom.appspot.com/o/history1.jpeg?alt=media&token=9909b193-e1e6-4f15-a778-a2f9d93a5b62"
         ],
+        rating: '4.5'
+
       }
 ]
 

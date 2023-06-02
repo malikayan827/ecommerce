@@ -15,7 +15,7 @@ import Password from './screens/SignUpScreens/Password';
 import ProdfileSettings from "./screens/profileScreen/ProfileSettings"
 import SearchScreenAyan from './screens/profileScreen/SearchScreenAyan';
 import ModalScreen from './screens/ModalScreen';
-import  OTPScreen from "../Frontend/screens/SignUpScreens/OTPscreen"
+import  OTPScreen from "./screens/SignUpScreens/OTPscreen"
 import Home from './screens/Home';
 import MyProfile from './screens/profileScreen/MyProfile';
 import CustomHeader from './components/CustomHeader';
@@ -62,66 +62,20 @@ export default function App() {
     <View style={{ direction: 'ltr', flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator>
-
-          {/* <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
-
+          <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="UserEmail" component={UserEmail} options={{ headerShown: false }} />
-          
-          <Stack.Screen name="Password" component={Password} options={{ headerShown: false }} /> 
+          <Stack.Screen name="Password" component={Password} options={{ headerShown: false }} />
+          <Stack.Screen name="Tabbar" component={Tabbar} options={{ headerShown: false }} />
+          <Stack.Screen name="ProdfileSettings" component={ProdfileSettings} options={{ headerShown: false }} />
+          <Stack.Screen name="ShippingAddress" component={ShippingAddress} options={{ headerShown: false }} />
+          <Stack.Screen name="MyProfile" component={MyProfile} options={{ headerShown: false }} />
+          <Stack.Screen name="Orders" component={OrdersProcessings} options={{ headerShown: false }} />
+          <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Settings" component={ProdfileSettings} options={{ headerShown: false }} />
+          <Stack.Screen name="OTPscreen" component={OTPScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="SellersMainScreen" component={SellersMainScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="AddProduct" component={AddProduct} options={{ headerShown: false }} />
 
-         <Stack.Screen name='Settings' component={ProfileSettings}  />  */}
-
-          {/* <Stack.Screen name='Tabbar' component={Tabbar} options={{ headerShown: false }}/>  */}
-          {/* <Stack.Screen name='Settings' component={ProdfileSettings} options={{ headerShown: false }}/>  */}
-
-          {/* <Stack.Screen name='DetailScreen' options={{ headerShown: false }} component={DetailScreen} /> */}
-          {/* <Stack.Screen name='Order details' options={{ headerShown: false }} component={OrderDetails}/> */}
-
-
-          
-          {/* <Stack.Screen name='Shipping address' options={{ headerShown: false }} component={ShippingAddress}/> */}
-
-          {/* <Stack.Screen name='Order Processing'  options={{
-            header: ({ navigation }) => (
-              <CustomHeader navigation={navigation} title="Orders Details"/>
-            ),
-          }} component={OrdersProcessings}/> */}
-
-
-          {/* <Stack.Screen name='Ratings'  
-          options={{
-            header: ({ navigation }) => (
-              <CustomHeader navigation={navigation} title="Orders Details"/>
-            ),
-          }} 
-          component={RatingScreen}/> */}
-
-          {/* <Stack.Screen name='SellersMainScreen' component={SellersMainScreen} options={{ headerShown: false }} /> */}
-
-          {/* <Stack.Screen name='fitler&seacrch' component={OTPScreen}/>  */}
-
-          {/* <Stack.Screen name='fitler&seacrch' component={ModalScreen}/> */}
-
-          {/* <Stack.Screen name='Search' component={SearchScreenAyan} 
-          //  options={{
-          //   headerLeft: () => (
-          //     <TouchableOpacity
-          //       onPress={() => alert('This is a button!')}
-          //       title="Info"> 
-          //       <Icon name='arrow-back' size={28}/>
-                
-          //       </TouchableOpacity>
-          //   ),
-          
-          //   title: 'Search',
-          //   headerTitleAlign:"center",
-          //   headerTransparent: true,
-
-          // }} 
-          // /> 
-        */}
-
-          <Stack.Screen name='SellersMainScreen' component={AddProduct} options={{ headerShown: false }} />
 
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Animated, Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,6 +14,7 @@ import { useRef } from 'react';
 
 import Home from './screens/Home';
 import MyProfile from './screens/profileScreen/MyProfile';
+import SearchScreen from './screens/SearchScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,8 @@ export default function Tabbar({ navigation }) {
                     tabBarStyle: [
                         {
                             backgroundColor: 'white',
-                            position: 'absolute',
+                            // position: 'absolute',
+                            position:'relative',
                             bottom: 10,
                             marginHorizontal: 10,
                             // Max Height...
@@ -48,7 +50,7 @@ export default function Tabbar({ navigation }) {
                         },
                         null
                     ]
-
+                    
                 })}
 
             >
@@ -192,13 +194,13 @@ function getWidth() {
 }
 
 
-function SearchScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Search!</Text>
-        </View>
-    );
-}
+// function SearchScreen() {
+//     return (
+//         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//             <Text>Search!</Text>
+//         </View>
+//     );
+// }
 
 function NotificationScreen() {
     return (

@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Dimensions } from 'react-native'
 import React, { useRef, useState } from 'react'
 
-export default function OTPscreen() {
+export default function OTPscreen({navigation}) {
     const firstInput = useRef();
     const secondInput = useRef();
     const thirdInput = useRef();
@@ -14,6 +14,8 @@ export default function OTPscreen() {
         console.log(otpString);
         setOtp({ 1: '', 2: '', 3: '', 4: '' })
         firstInput.current.focus();
+        navigation.navigate('SellersMainScreen');
+
     }
 
     return (

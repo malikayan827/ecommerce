@@ -18,7 +18,7 @@ const buttons = [
     { id: 6, name: 'Completed'}
 ]
 
-export default function SellersMainScreen() {
+export default function SellersMainScreen({ navigation}) {
     const [selectedBTN, setSelectedBTN] = useState(1)
     let component;
     
@@ -46,7 +46,7 @@ export default function SellersMainScreen() {
                 />
             </View>
             {/* {component} */}
-            {selectedBTN ===1? <Products />: selectedBTN ===2? <Reviews />: selectedBTN ===3? <Offers />: selectedBTN ===4? <SellerSettings />: selectedBTN ===5? <Pending />: <Completed />}
+            {selectedBTN ===1? <Products navigation={navigation}/>: selectedBTN ===2? <Reviews />: selectedBTN ===3? <Offers />: selectedBTN ===4? <SellerSettings />: selectedBTN ===5? <Pending navigation={navigation} />: <Completed />}
         </ScrollView>
     )
 }

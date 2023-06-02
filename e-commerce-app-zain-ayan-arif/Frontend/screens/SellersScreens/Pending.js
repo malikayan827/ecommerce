@@ -4,7 +4,7 @@ import List from '../../Help/OrdersSeller'
 import PendingOrderSeller from '../../components/PendingOrderSeller'
 
 
-const Pending = () => {
+const Pending = ({navigation}) => {
   return (
     <View>
       <View><Text style={styles.heading} >Pending Orders</Text></View>
