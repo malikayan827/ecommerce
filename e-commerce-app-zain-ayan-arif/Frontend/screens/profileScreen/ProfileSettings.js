@@ -13,6 +13,14 @@ export default function ProfileSettings({navigation}) {
     const toggleShowPassword = () => setShowPassword(!showPassword);
     const [salesNotification, setSalesNotification] = useState(false);
 
+    useEffect(() => {
+        if(salesNotification) {
+            navigation.navigate('OTPscreen');
+        }
+    }, [salesNotification]);
+
+
+
     const passwordIconSource = showPassword ? require('..//../assets/unshowPassword.png') : require('..//../assets/showPassword.png');
     return (
         <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' ,backgroundColor: '#F8F8FF'}}>

@@ -15,6 +15,10 @@ export default function LoginScreen({navigation}) {
         navigation.navigate('UserEmail')
     }
 
+    const goHome = () => {
+        navigation.navigate('Tabbar')
+    }
+    
     return (
         <ScrollView style={styles.main_div}
             showsVerticalScrollIndicator={false}
@@ -44,7 +48,7 @@ export default function LoginScreen({navigation}) {
                         </View>
                         <Text style={styles.Forgot_pwd_txt}>Forgot Password?</Text>
                         <View style={styles.LoginBTN_div}>
-                            <TouchableOpacity style={styles.LoginBTN}>
+                            <TouchableOpacity style={styles.LoginBTN} onPress={goHome}>
                                 <Text style={styles.LoginBTN_txt}>Login</Text>
                             </TouchableOpacity>
                         </View>
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
     main_div: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        backgroundColor: 'black'
+        backgroundColor: '#9DB2BF'
     },
     upper_div: {
         height: Dimensions.get('window').height / 3.2,

@@ -11,6 +11,9 @@ export default function Password({ navigation, route }) {
         setShowPassword(!showPassword);
     }
     
+    const showHome = () => {
+        navigation.navigate('Tabbar')
+    }
 
     return (
         <ScrollView style={styles.main_div}>
@@ -31,7 +34,7 @@ export default function Password({ navigation, route }) {
                 <Text style={styles.Help_txt}>Password must be 6 characters or more</Text>
 
                 <View style={styles.LoginBTN_div}>
-                    <TouchableOpacity style={styles.LoginBTN} >
+                    <TouchableOpacity style={styles.LoginBTN} onPress={showHome}>
                         <Text style={styles.LoginBTN_txt}>Sign UP</Text>
                     </TouchableOpacity>
                 </View>
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
     mail_txt: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: '#3669C9'
+        color: '#000'
     },
     pwd_txt_div: {
         height: 40,
@@ -89,11 +92,11 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     icon: {
-        color: '#3669C9'
+        color: '#000'
     },
     Fields_txt: {
         borderBottomWidth: 1,
-        borderBottomColor: '#3669C9',
+        borderBottomColor: '#000',
         width: 250,
         marginLeft: 20,
         fontSize: 20,
@@ -127,10 +130,10 @@ const styles = StyleSheet.create({
     ShowPWD: {
         textAlign: 'right',
         marginRight: 30,
-        color: '#3669C9',
+        color: '#000',
     },
     LoginBTN: {
-        backgroundColor: '#3669C9',
+        backgroundColor: '#000',
         height: 50,
         borderRadius: 10,
         justifyContent: 'center',

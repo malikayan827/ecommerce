@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     main_div: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        backgroundColor: 'black'
+        backgroundColor: '#9DB2BF'
     },
     upper_div: {
         height: Dimensions.get('window').height / 3.2,

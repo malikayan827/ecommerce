@@ -11,7 +11,6 @@ import {
   Switch,
   ScrollView,
   Dimensions,
-  SectionList,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
@@ -26,73 +25,42 @@ export default function ProfileSettings({ navigation }) {
     ? require("..//../assets/unshowPassword.png")
     : require("..//../assets/showPassword.png");
 
-    const pickImage = async () => {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
-  
-      if (!result.cancelled) {
-        setImages(prevImages => [...prevImages, result.uri]);
-      }
-    };
-    
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
 
-    const removeImage = (index) => {
-      setImages(prevImages => prevImages.filter((_, i) => i !== index));
- 
-    };
-    
+    if (!result.cancelled) {
+      setImages((prevImages) => [...prevImages, result.uri]);
+    }
+  };
+
+  const removeImage = (index) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+  };
 
   const DATA = [
-    {
-      title: "Account Information",
-      data: [{ label: "Email Address" }, { label: "User Name" }],
-    },
-    {
-      title: "Personal Information",
-      data: [
-        { label: "First Name" },
-        { label: "Last Name" },
-        { label: "Address" },
-        { label: "CNIC" },
-        { label: "Phone Number" },
-      ],
-    },
-    {
-      title: "Store Information",
-      data: [
-        { label: "Store Name" },
-        { label: "Store Description" },
-        //{ label: 'Store Logo' },
-      ],
-    },
-    {
-      title: "Store Policies",
-      data: [
-        { label: "Return and Refund Policy" },
-        { label: "Terms and Conditions" },
-      ],
-    },
+    { label: "Product Title" },
+    { label: "Category" },
+    { label: "Description" },
+    { label: "Price" },
+    { label: "Quantity" },
+    { label: "Brand" },
+    { label: "Shipping Options" },
+    { label: "Colours" },
+    { label: "Sizes" },
+    { label: "Tags/Keywords" },
+    { label: "Product Weight and Dimensions" },
+    { label: "Availability" },
+    { label: "Fixed Price" },
+    { label: "Display Price" },
+    { label: "Additional Information" },
   ];
 
-  const renderSectionHeader = ({ section: { title } }) => (
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-    </View>
-  );
-
   const renderItem = ({ item }) => {
-    if (item.type === "switch") {
-      return (
-        <View style={styles.notificationItem}>
-          <Text style={styles.notificationText}>{item.label}</Text>
-          <Switch value={item.value} onValueChange={setSalesNotification} />
-        </View>
-      );
-    }
     return (
       <View style={styles.inputBox}>
         <TextInput
@@ -103,7 +71,6 @@ export default function ProfileSettings({ navigation }) {
       </View>
     );
   };
-  
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -116,6 +83,7 @@ export default function ProfileSettings({ navigation }) {
           />
         </TouchableOpacity>
       </View>
+
       <View style={styles.imagesContainer}>
         <TouchableOpacity
           style={[
@@ -143,11 +111,15 @@ export default function ProfileSettings({ navigation }) {
           </View>
         ))}
       </View>
-      <SectionList style={{ marginTop: 20 }}
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
+
+      {/* {selectedImage && (
+        <Image source={{ uri: selectedImage }} style={styles.selectedImage} />
+      )} */}
+      <FlatList
+        data={DATA}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
+        style={{ marginTop: 20 }}
       />
       <TouchableOpacity style={styles.detailsButton}>
         <Text style={styles.detailsButtonText}>Save</Text>
@@ -180,17 +152,6 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginLeft: 10,
-  },
-  section: {
-    marginTop: 10,
-    marginBottom: 20,
-    alignSelf: "flex-start",
-    marginLeft: 4,
-  },
-  sectionTitle: {
-    fontWeight: "bold",
-    fontSize: 20,
-    margin: 5,
   },
   inputBox: {
     borderRadius: 10,
@@ -266,6 +227,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 170,
     height: 40,
+    marginBottom: 20,
   },
   uploadButtonText: {
     color: "#fff",

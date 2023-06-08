@@ -15,7 +15,7 @@ export default function MyProfile({ navigation }) {
     const data = [
         { id: '1', name: ' My Profile' },
         { id: '2', name: 'Shipping address' },
-        { id: '3', name: 'My Reviews' },
+        { id: '3', name: 'Orders' },
         { id: '4', name: 'Settings' },
        
       ];
@@ -28,7 +28,7 @@ export default function MyProfile({ navigation }) {
             navigation.navigate('ShippingAddress');
         } else if(item.id === '3') {
             // navigate to MyReviews screen
-            navigation.navigate('MyReviews');
+            navigation.navigate('Orders');
         } else if(item.id === '4') {
             // navigate to Settings screen
             navigation.navigate('Settings');
